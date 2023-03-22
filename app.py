@@ -1,25 +1,12 @@
 from flask import Flask, render_template, url_for, flash, redirect
 from forms import RegistrationForm, LoginForm
+from models.posts import posts
+from secret import SECRET_KEY
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = '777a8e3e7f7b33e356669e1a2668a3d6'
-
-posts = [
-    {
-        'author': 'Hardik Mishra',
-        'title': 'Blog Post 1',
-        'content': 'First post content',
-        'date_posted': 'April 20, 2018'
-    },
-    {
-        'author': 'Modi Mishra',
-        'title': 'Blog Post 2',
-        'content': 'Second post content',
-        'date_posted': 'April 21, 2018'
-    }
-]
-
+# '777a8e3e7f7b33e356669e1a2668a3d6'
+app.config['SECRET_KEY'] = SECRET_KEY
 
 @app.route('/')
 @app.route('/home')
